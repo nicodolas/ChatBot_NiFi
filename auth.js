@@ -6,7 +6,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 const chatContainer = document.querySelector(".chat-container");
 const loginBtn = document.getElementById("loginBtn");
 const registerBtn = document.getElementById("registerBtn");
-
+const PORT = process.env.PORT 
 function setUser(username) {
   localStorage.setItem("chatbox_user", username);
   userWelcome.textContent = "Xin chào, " + username;
@@ -35,7 +35,7 @@ loginForm?.addEventListener("submit", async function (e) {
   const username = document.getElementById("loginUsername").value.trim();
   const password = document.getElementById("loginPassword").value;
   try {
-    const res = await fetch("http://localhost:3000/api/login", {
+    const res = await fetch(`http://localhost:${PORT}/api/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
@@ -60,7 +60,7 @@ registerForm?.addEventListener("submit", async function (e) {
   const username = document.getElementById("registerUsername").value.trim();
   const password = document.getElementById("registerPassword").value;
   try {
-    const res = await fetch("http://localhost:3000/api/register", {
+    const res = await fetch(`http://localhost:${PORT}/api/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),

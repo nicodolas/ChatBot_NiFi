@@ -2,7 +2,7 @@
 const chatHistory = document.getElementById("chatHistory");
 const chatForm = document.getElementById("chatForm");
 const chatInput = document.getElementById("chatInput");
-
+const PORT = process.env.PORT;
 function createMessageElement(text, sender = "user") {
   const msg = document.createElement("div");
   msg.className = "message " + sender;
@@ -29,9 +29,8 @@ async function sendToServer(text) {
   }
 
   try {
-    // Gửi tin nhắn lên server (lưu DB và gửi tới NiFi)
     console.log(username);
-    const response = await fetch("http://localhost:3000/api/chat", {
+    const response = await fetch(`http://localhost:${PORT}/api/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

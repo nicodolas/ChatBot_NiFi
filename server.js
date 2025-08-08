@@ -1,5 +1,5 @@
 require("dotenv").config(); // Nạp biến môi trường từ file .env
-
+const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
@@ -127,9 +127,14 @@ app.post("/api/chat", async (req, res) => {
     res.status(500).json({ error: "Lỗi gọi NiFi: " + err.message });
   }
 });
+app.use(express.static(path.join(__dirname)));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
 // === SERVER KHỞI ĐỘNG ===
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
   console.log(`🚀 Server chạy tại http://localhost:${PORT}`);
 });
