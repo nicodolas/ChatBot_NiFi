@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Chatbox</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-white shadow-sm">
+      <div class="container">
+        <span class="navbar-brand fw-bold text-primary">💬 Chatbox</span>
+        <div>
+          <button class="btn btn-primary me-2" data-bs-toggle="modal"
+            data-bs-target="#loginModal" id="loginBtn">Đăng nhập</button>
+          <button class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#registerModal" id="registerBtn">Đăng ký</button>
+          <span id="userWelcome" class="ms-3 fw-semibold"></span>
+          <button id="logoutBtn" class="btn btn-danger btn-sm d-none ms-2">Đăng
+            xuất</button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="chatbox-bg">
+      <div class="chat-container d-none">
+        <div class="chat-history" id="chatHistory"></div>
+        <form class="chat-input-area" id="chatForm" autocomplete="off">
+          <input type="text" class="chat-input" id="chatInput"
+            placeholder="Nhập tin nhắn..." required />
+          <button type="submit" class="send-btn">Gửi</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Đăng nhập -->
+    <div class="modal fade" id="loginModal" tabindex="-1"
+      aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form class="modal-content" id="loginForm" autocomplete="off">
+          <div class="modal-header">
+            <h5 class="modal-title" id="loginModalLabel">Đăng nhập</h5>
+            <button type="button" class="btn-close"
+              data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="loginUsername" class="form-label">Tên đăng
+                nhập</label>
+              <input type="text" class="form-control" id="loginUsername"
+                required />
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Mật khẩu</label>
+              <input type="password" class="form-control" id="loginPassword"
+                required />
+            </div>
+            <div id="loginError" class="text-danger"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary w-100">Đăng
+              nhập</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Đăng ký -->
+    <div class="modal fade" id="registerModal" tabindex="-1"
+      aria-labelledby="registerModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form class="modal-content" id="registerForm" autocomplete="off">
+          <div class="modal-header">
+            <h5 class="modal-title" id="registerModalLabel">Đăng ký</h5>
+            <button type="button" class="btn-close"
+              data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="registerUsername" class="form-label">Tên đăng
+                nhập</label>
+              <input type="text" class="form-control" id="registerUsername"
+                required />
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Mật khẩu</label>
+              <input type="password" class="form-control" id="registerPassword"
+                required />
+            </div>
+            <div id="registerError" class="text-danger"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-outline-primary w-100">Đăng
+              ký</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="auth.js"></script>
+    <script src="chat.js"></script>
+  </body>
+</html>

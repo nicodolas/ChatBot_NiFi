@@ -1,0 +1,110 @@
+body {
+  background: linear-gradient(135deg, #e0e7ff 0%, #fff 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.chatbox-bg {
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 40px;
+}
+.chat-container {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  height: 70vh;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.chat-history {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #f8fafc;
+}
+.message {
+  max-width: 80%;
+  padding: 12px 18px;
+  border-radius: 18px;
+  font-size: 1rem;
+  word-break: break-word;
+  line-height: 1.5;
+  display: inline-block;
+  clear: both;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  transition: background 0.2s;
+}
+.message.user {
+  background: #6366f1;
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  text-align: right;
+}
+.message.other {
+  background: #e0e7ff;
+  color: #22223b;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  text-align: left;
+}
+.chat-input-area {
+  display: flex;
+  padding: 16px;
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  gap: 10px;
+}
+.chat-input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  background: #f4f6fb;
+}
+.chat-input:focus {
+  border-color: #6366f1;
+  background: #fff;
+}
+.send-btn {
+  border-radius: 20px;
+  background: #6366f1;
+  color: #fff;
+  border: none;
+  padding: 8px 24px;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.send-btn:hover {
+  background: #4338ca;
+}
+@media (max-width: 600px) {
+  .chatbox-bg {
+    padding-top: 0;
+    min-height: 100vh;
+  }
+  .chat-container {
+    max-width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .chat-history {
+    padding: 12px;
+  }
+  .chat-input-area {
+    padding: 8px;
+  }
+}
